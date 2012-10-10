@@ -2,16 +2,21 @@
 Let's read some analog values.
  */
 
-int initialLight;
+int d;
 
 void setup() {
   pinMode(A0, INPUT);
+  pinMode(12,OUTPUT);
   Serial.begin(9600);
-  initialLight = analogRead(A0);
 }
 
 void loop() {
-  Serial.println(analogRead(A0));
+  d = analogRead(A0);
+  Serial.println(millis());
+  digitalWrite(12,HIGH);
+  delay(d);
+  digitalWrite(12,LOW);
+  delay(d);
 }
 
 
